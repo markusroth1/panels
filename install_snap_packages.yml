@@ -1,0 +1,24 @@
+- name: Install and configure Snap packages for Ubuntu Frame
+  hosts: all
+  become: yes
+  vars_files:
+    - vars/snap_packages.yml
+
+  tasks:
+    - name: Install Snap packages
+      community.general.snap:
+        name: "{{ item.name }}"
+        classic: "{{ item.classic | default(false) }}"
+        devmode: "{{ item.devmode | default(false) }}"
+        state: present
+      loop: "{{ snap_packages }}"
+
+    - name: Configure Snap packages
+      ansible.builtin.command: "snap set {{ item.name }} {{ item.config }}"
+      changed_when: false
+      loop: "{{ snap_configs }}"
+
+    - name: Connect Snap interfaces
+      ansible.builtin.command: "snap connect {{ item }}"
+      changed_when: false
+      loop: "{{ snap_connections }}"

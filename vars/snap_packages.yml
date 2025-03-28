@@ -1,0 +1,25 @@
+snap_packages:
+  - name: "ubuntu-frame"
+    devmode: true
+  - name: "wpe-webkit-mir-kiosk"
+  - name: "ubuntu-frame-osk"
+
+snap_configs:
+  - name: "ubuntu-frame"
+    config: 'config="cursor=null"'
+  - name: "ubuntu-frame"
+    config: "daemon=true"
+  - name: "wpe-webkit-mir-kiosk"
+    config: "url=http://127.0.0.1"
+  - name: "wpe-webkit-mir-kiosk"
+    config: "daemon=true"
+  - name: "ubuntu-frame-osk"
+    config: "theme=dark"
+  - name: "ubuntu-frame-osk"
+    config: "layout=us,de,cz"
+  - name: "ubuntu-frame-osk"
+    config: "daemon=true"
+
+snap_connections:
+  - "ubuntu-frame-osk:wayland"
+  - "wpe-webkit-mir-kiosk:wayland"
