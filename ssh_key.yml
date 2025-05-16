@@ -13,7 +13,7 @@
   tasks:
     - name: SSH Keys für Benutzer hinterlegen
       ansible.posix.authorized_key:
-        user: foobar
+        user: adminfipps
         key: "{{ item }}"
         state: present
       loop: "{{ ssh_keys }}"
