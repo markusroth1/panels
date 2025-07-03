@@ -8,7 +8,7 @@ snap_configs:
   - name: "ubuntu-frame"
     config: 'config="cursor=null"'
   - name: "ubuntu-frame"
-    config: "daemon=true"
+    config: "daemon=false"
   - name: "wpe-webkit-mir-kiosk"
     config: "url=http://127.0.0.1"
   - name: "wpe-webkit-mir-kiosk"
