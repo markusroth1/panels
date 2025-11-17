@@ -1,0 +1,8 @@
+---
+- name: Deploy Panels 
+  hosts: all
+  become: true
+  remote_user: adminfipps
+
+- import_playbook: install_snap_packages.yml
+- import_playbook: post-install.yml
