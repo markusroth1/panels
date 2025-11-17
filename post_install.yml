@@ -1,0 +1,16 @@
+- name: Post Install Tasks on Panels
+  hosts: all
+  become: yes
+  gather_facts: false
+
+  tasks:
+    - name: Remove 90curtin-aptproxy File
+      file:
+        path: /etc/apt/apt.conf.d/90curtin-aptproxy
+        state: absent
+
+    - name: Remove 60-cloudimg-settings.conf
+      file:
+        path: /etc/ssh/sshd_config.d/60-cloudimg-settings.conf
+        state: absent      
+
